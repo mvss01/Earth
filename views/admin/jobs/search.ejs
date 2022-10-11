@@ -1,6 +1,45 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>Jobs</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 75vh;">
+                <strong class="text-primary" style="font-size: 17pt;">Vagas</strong><br><br>
+                <button class="btn btn-block" id="job" value="">
+                    <p class="text-left">
+                        <strong>Título da vaga</strong><span style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></span><br>
+                        <span style="font-weight: 500;">Empresa</span> 
+                        <br><br>
+                        Cidade, ES
+                    </p>
+                </button><br>
+            </div>
+            <div class="col-md-8" id="job-descripton">
+                <button class="col-md-12" style="outline: none; border: 1px solid #dbdbdb; background: none; border-radius: 20px; padding: 20px;">
+                    <span><img src="/img/job-icon.png" width="50" height="41.18" style="float: left;"></span><br><br>
+                    <p class="text-left" >
+                        <strong style="font-size: 20pt;">Vaga</strong>
+                        <br>
+                        <span class="text-secondary" style="font-size: 15pt; font-weight: 500;">Empresa - Cidade, ES</span>
+                    </p>
+                    
+                    <span class="btn btn-primary text-white col-md-7 mt-3" style="text-decoration: none; float: left; ">Candidatar-se</span>
+                    <span class="btn btn-outline-secondary col-md-4 mt-3" style="text-decoration: none; float: right;">Salvar</span>
+                </button>
+                <div class="col-md-12 mt-3">
+                    <strong style="font-size: 13pt;">Descrição</strong><br>
+                    Descrição da vaga, com os dados completos, to digitando so pra encher linguiça. Não tem o tal do lorem aqui n? Ah, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti nostrum vero laboriosam corporis, dolor, laborum exercitationem mollitia optio necessitatibus beatae, similique provident blanditiis. Officia vero labore neque magnam optio laboriosam. Obrigado vs code
+                    <span class="mt-2" style="font-size: 13pt; float: left;">
+                        <strong>Nível de experiência</strong><br>
+                        Pleno
+                    </span>
+                    <span class="col-md-6 col-sm-12 mt-2" style="font-size: 13pt; float: right; ">
+                        <strong>Carga-horária</strong> <br>
+                        Integral    
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

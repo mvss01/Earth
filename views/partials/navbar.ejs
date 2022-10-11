@@ -1,15 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white mb-5">
     <a href="/" class="navabar-brand"><img src="/img/Logo.png" width="120" height="79.09"></a>
     <%if(render == 1){%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Início</a>
-                </li>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav d-flex align-items-center">
+                <a href="/jobs" class="nav-item type-1 text-secondary" style="text-decoration: none;">
+                    <img src="/img/handshake.png" width="35" height="21">
+                    <strong>Vagas</strong>
+                </a>
+                
+                <span class="nav-item type-1" style="border-left: 3px solid #828586 ; font-size: 13pt;"> </span>
+                <a class="nav-item type-0 text-secondary" style="text-decoration: none; font-size: 13pt;" href="/users/register"><strong>Cadastre-se agora</strong></a>
+                <a class="nav-item type-1 btn btn-primary btn-md" style="font-size: 13pt;" href="/login"><strong>Entrar</strong></a>
+                
             </div>
         </div>
     <%}%>

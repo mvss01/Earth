@@ -1,6 +1,32 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>User Register</h1>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <h2><strong>Vá de encontro à oportunidade.</strong></h2><br>
+        </div><br>
+        <div class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-4 shadow p-3 mb-5 bg-white rounded">
+                <form  method="POST" action="/users/save" class="form-container">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="first-name" placeholder="Nome"> <br>
+                        <input class="form-control" type="text" name="last-name" placeholder="Sobrenome"> <br>
+                        
+                        <input class="form-control" type="email" name="email" value="<%=email%>" placeholder="Email">
+                        <input class="form-control" type="password" name="password" placeholder="Senha"><br>
+                        <!--<select class="form-control" name="state">
+                            <option value="">Selecione seu estado</option>
+                        </select><br>
+                        <select class="form-control" name="city">
+                            <option value="">Selecione sua cidade</option>
+                        </select><br>-->
+
+                        <button class="btn btn-primary btn-block">Continuar</button>
+                    </div>
+                    
+                </form>
+            </section>
+        </div>
+    </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

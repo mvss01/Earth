@@ -3,7 +3,7 @@ const router = express.Router();
 const Job = require("./job");
 
 router.get('/jobs', (req, res) =>{
-    res.render('admin/jobs/search')
+    res.render('admin/jobs/search', {render: 1})
 })
 router.get('/jobs/view/:job', (req, res) =>{
     res.render('admin/jobs/view')

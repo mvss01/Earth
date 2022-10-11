@@ -1,0 +1,7 @@
+.type-1{
+    margin-left: 25px;
+}
+.type-0{
+    margin-left: 10px;
+}
+.jobs::-webkit-scrollbar {width: 0! important}
