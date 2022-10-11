@@ -8,28 +8,26 @@
                     <h2 class="text-left"><strong>Login</strong></h2><br>
 
                     <div class="form-group">
-                        <input class="form-control" type="text" name="matricula" placeholder="Email"><br>
+                        <input class="form-control" type="text" name="email" placeholder="Email"><br>
                     </div>
 
                     <div class="form-group">
                         <input class="form-control" type="password" name="senha" placeholder="Senha"><br>
+                        <a class="text-primary" href="/users/restore"><strong>Esqueceu sua senha?</strong></a>
                     </div>
 
-                        <button class="btn btn-primary btn-block">Entrar</button>
+                    <button class="btn btn-primary btn-block">Entrar</button>
                 </form>
             </section>
         </div>    
         <div class="row">
             <hr class="col-3">ou<hr class="col-3">
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4">
-                Não tem uma conta?<a href="" class="text-primary"><strong>Cadastre-se</strong></a>
+        </div><br>
+        <div class="row d-flex justify-content-center">
+            <div>
+                Não tem uma conta? <a href="/" class="text-primary"><strong>Cadastre-se</strong></a>
             </div> 
         </div>
-
-        
     </div>
-    
 </body>
 <%- include ('../../partials/footer.ejs') %>
