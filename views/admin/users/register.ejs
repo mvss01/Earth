@@ -7,12 +7,12 @@
         </div><br>
         <div class="row justify-content-center">
             <section class="col-12 col-sm-6 col-md-4 shadow p-3 mb-5 bg-white rounded">
-                <form  method="POST" action="/users/save" class="form-container">
+                <form class="form-container" method="POST" action="/users/save" >
                     <div class="form-group">
-                        <input class="form-control" type="text" name="first-name" placeholder="Nome"> <br>
-                        <input class="form-control" type="text" name="last-name" placeholder="Sobrenome"> <br>
+                        <input class="form-control" type="text" name="firstName" placeholder="Nome"> <br>
+                        <input class="form-control" type="text" name="lastName" placeholder="Sobrenome"> <br>
                         
-                        <input class="form-control" type="email" name="email" value="<%=email%>" placeholder="Email">
+                        <input class="form-control" type="email" name="email" value="<%=email%>" placeholder="Email"><br>
                         <input class="form-control" type="password" name="password" placeholder="Senha"><br>
                         <!--<select class="form-control" name="state">
                             <option value="">Selecione seu estado</option>

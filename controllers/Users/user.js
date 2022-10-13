@@ -32,6 +32,10 @@ const User = connection.define('User',{
     },
     location:{
         type: Sequelize.STRING,
+        allowNull: true
+    },
+    token:{
+        type: Sequelize.STRING,
         allowNull: false
     }
 });

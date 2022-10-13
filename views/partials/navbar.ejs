@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white mb-5">
     <a href="/" class="navabar-brand"><img src="/img/Logo.png" width="120" height="79.09"></a>
-    <%if(render == 1){%>
+    <% if(navbar == 1){ %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,6 +18,30 @@
                 
             </div>
         </div>
-    <%}%>
-    
+    <% } %>
+    <% if(navbar == 2){ %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav d-flex align-items-center">
+                <a href="/opportunities" class="nav-item type-0 text-secondary" style="text-decoration: none;">
+                    <div class="row align-items-center">
+                        <img src="/img/clipboard.png" width="25" height="28.40">
+                    </div>
+                    <div class="row align-items-center">
+                        <strong>Minhas Vagas</strong>
+                    </div>
+                    
+                </a>
+                <a href="/jobs" class="nav-item type-0 text-secondary" style="text-decoration: none;">
+                    <img src="/img/handshake.png" width="35" height="21">
+                    <strong>Vagas</strong>
+                </a>
+                <a href="/users/perfil" class="nav-item type-1" style="font-size: 13pt; text-decoration: none;"><img class="mr-1" src="/img/user.png" width="45" height="45"><strong style="color: #007BFF;"><%=session. firstName%></strong></a>
+                
+            </div>
+        </div>
+    <% } %>
 </nav>
