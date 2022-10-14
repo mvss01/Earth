@@ -2,7 +2,7 @@ async function UserAuth(req, res, next){
     const User = require("../controllers/Users/user")
     if(req.session.user){
         let token = req.session.user.token
-        let email = req.session.user.token
+        let email = req.session.user.email
         const user = await User.findOne({
             where:{email: email, token: token}
         })
@@ -16,6 +16,8 @@ async function UserAuth(req, res, next){
             req.session.user = null
             res.redirect('/')
         }
+    }else{
+        res.redirect('/')
     }
 }
 

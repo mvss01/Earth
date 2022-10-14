@@ -25,7 +25,13 @@ const Job = connection.define('Job',{
     target:{
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    location:{
+        type: Sequelize.TEXT,
+        allowNull: false
     }
+    
+
 });
     
 Job.sync({force: false});

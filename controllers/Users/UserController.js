@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 const User = require("./user");
+const UserAuth = require("../../middlewares/UserAuth");
 
 router.post('/users/authenticate', async (req, res) =>{
     var email = req.body.email
     var password = req.body.password
-    console.log(email)
-    console.log(password)
     if(email&&password){
         var user = await User.findOne({
             where:{
@@ -21,7 +20,8 @@ router.post('/users/authenticate', async (req, res) =>{
                 var token = bcrypt.hashSync(user.firstName, salt);
                 req.session.user = {
                     token: token,
-                    firstName: user.firstName
+                    firstName: user.firstName,
+                    email: user.email
                 }
                 User.update({token: token}, {
                     where:{
@@ -29,8 +29,12 @@ router.post('/users/authenticate', async (req, res) =>{
                     }
                 }).then(() =>{
                     res.redirect('/jobs/favorites')
+                }).catch(() =>{
+                    res.redirect('/')
                 })
-           }
+            }else{
+                res.redirect('/login')
+            }
         }else{
             res.redirect('/jobs/register')
         }
@@ -40,8 +44,8 @@ router.post('/users/authenticate', async (req, res) =>{
     
 })
 
-router.get('/users/perfil', (req, res) =>{
-    res.render('admin/users/perfil', {navbar: 1})
+router.get('/users/perfil', UserAuth, (req, res) =>{
+    res.render('admin/users/perfil', {navbar: 2, session: req.session.user})
 });
 
 router.get('/users/register', (req, res) =>{
@@ -54,7 +58,6 @@ router.post('/users/save', async (req, res) =>{
     var firstName = req.body.firstName
     var lastName = req.body.lastName
     var type = req.body.type
-    console.log('entrou na rota')
     if(email&&password&&firstName&&lastName){
         var repetido = await User.findOne({
             where:{

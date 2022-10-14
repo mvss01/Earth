@@ -7,15 +7,19 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex align-items-center">
-                <a href="/jobs" class="nav-item type-1 text-secondary" style="text-decoration: none;">
-                    <img src="/img/handshake.png" width="35" height="21">
-                    <strong>Vagas</strong>
+
+                <a href="/jobs" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/handshake.png" width="55" height="34.76">
+                        <strong>Vagas</strong>
+                    </div>
                 </a>
                 
-                <span class="nav-item type-1" style="border-left: 3px solid #828586 ; font-size: 13pt;"> </span>
-                <a class="nav-item type-0 text-secondary" style="text-decoration: none; font-size: 13pt;" href="/users/register"><strong>Cadastre-se agora</strong></a>
-                <a class="nav-item type-1 btn btn-primary btn-md" style="font-size: 13pt;" href="/login"><strong>Entrar</strong></a>
-                
+                <span class="nav-item ml-3 mr-3 collapse navbar-collapse" style="border-left: 3px solid #828586 ; font-size: 13pt;"> </span>
+
+                <a class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none; font-size: 13pt;" href="/users/register"><strong>Cadastre-se agora</strong></a>
+                <a class="nav-item btn btn-md btn-primary ml-3 mr-3 collapse navbar-collapse" style="font-size: 13pt;" href="/login"><strong>Entrar</strong></a>
+                <a class="nav-item text-primary collapse" id="navbarNavAltMarkup" style="font-size: 13pt;" href="/login"><strong>Entrar</strong></a>
             </div>
         </div>
     <% } %>
@@ -26,20 +30,34 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex align-items-center">
-                <a href="/opportunities" class="nav-item type-0 text-secondary" style="text-decoration: none;">
-                    <div class="row align-items-center">
-                        <img src="/img/clipboard.png" width="25" height="28.40">
-                    </div>
-                    <div class="row align-items-center">
-                        <strong>Minhas Vagas</strong>
-                    </div>
-                    
+
+                <a href="/saved" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/filled-star.png" width="55" height="34.76"> 
+                        <strong>Salvos</strong>
+                    </div>  
                 </a>
-                <a href="/jobs" class="nav-item type-0 text-secondary" style="text-decoration: none;">
-                    <img src="/img/handshake.png" width="35" height="21">
-                    <strong>Vagas</strong>
+
+                <a href="/opportunities" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/clipboard.png" width="55" height="34.76"> 
+                        <strong>Oportunidades</strong>
+                    </div>  
                 </a>
-                <a href="/users/perfil" class="nav-item type-1" style="font-size: 13pt; text-decoration: none;"><img class="mr-1" src="/img/user.png" width="45" height="45"><strong style="color: #007BFF;"><%=session. firstName%></strong></a>
+
+                <a href="/jobs" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/handshake.png" width="55" height="34.76">
+                        <strong>Vagas</strong>
+                    </div>
+                </a>
+                <a href="/users/perfil" class="nav-item text-primary ml-3 mr-3" style="font-size: 13pt; text-decoration: none;">
+                    <div class="d-flex align-items-center">
+                        <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
+                        <strong class="collapse navbar-collapse"><%=session.firstName%></strong>
+                        <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                    </div>
+                </a>
                 
             </div>
         </div>
