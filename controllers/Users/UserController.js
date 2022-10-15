@@ -5,8 +5,13 @@ const User = require("./user");
 const UserAuth = require("../../middlewares/UserAuth");
 
 router.post('/users/authenticate', async (req, res) =>{
+
     var email = req.body.email
     var password = req.body.password
+    if(email == undefined && password == undefined){
+        email = req.flash(email)
+        password = req.flash(password)
+    }
     if(email&&password){
         var user = await User.findOne({
             where:{
@@ -75,9 +80,26 @@ router.post('/users/save', async (req, res) =>{
                 lastName: lastName,
                 type: type,
                 email: email,
+                token: 0,
                 password: hash
             }).then(() =>{
-                res.redirect('/')
+                var salt = bcrypt.genSaltSync(10);
+                var token = bcrypt.hashSync(firstName, salt);
+                req.session.user = {
+                    firstName: firstName,
+                    token: token,
+                    email: email
+
+                }
+                User.update({token: token}, {
+                    where:{
+                        email: email
+                    }
+                }).then(() =>{
+                    res.redirect('/jobs/favorites')
+                }).catch(() =>{
+                    res.redirect('/')
+                })
             })
         }
     }else{

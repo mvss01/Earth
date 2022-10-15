@@ -26,11 +26,18 @@ const Job = connection.define('Job',{
         type: Sequelize.TEXT,
         allowNull: false
     },
-    location:{
+    city:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    state:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    workload:{
         type: Sequelize.TEXT,
         allowNull: false
     }
-    
 
 });
     
