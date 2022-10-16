@@ -1,6 +1,42 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>Job Edit</h1>
+    <div class="container">
+        <div class="row col-12">
+            <strong class="text-primary mb-2" style="font-size: 17pt;">Editar Vaga</strong>
+        </div>
+        <div class="row col-12">
+            <form class="form-container col-12  " action="/jobs/update/<%=job.id%>" method="POST">
+                <input class="form-control" type="text" placeholder="<%=job.jobName%>" value="<%=job.jobName%>" name="name"><br>
+                <textarea class="form-control" type="text" placeholder="<%=job.description%>" rows="3" name="description"><%=job.description%></textarea><br>
+                <div class="row">
+                    <div class="col-4">
+                        <select class="form-control" name="experience" required>
+                            <option value="" disabled selected hidden>Selecione o nível de experiência...</option>
+                            <option value="Estagiário">Estagiário</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Pleno">Pleno</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" name="workload" required>
+                            <option value="" disabled selected hidden>Selecione o período...</option>
+                            <option value="Integral">Integral</option>
+                            <option value="Meio Período">Meio Período</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="number" name="availability" placeholder="Número de vagas" value="<%=job.availability%>">
+                    </div>
+                </div><br>
+                <input class="form-control" type="text" name="state" placeholder="<%=job.state%>" value="<%=job.state%>"><br>
+                <input class="form-control" type="text" name="city" placeholder="<%=job.city%>" value="<%=job.city%>"><br>
+                <button class="btn btn-primary col-4" style="float: right;" type="submit"><strong>Editar</strong></button>
+                <button class="btn btn-danger col-2"><strong>Apagar</strong></button>
+            </form>
+          
+        </div>
+    </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

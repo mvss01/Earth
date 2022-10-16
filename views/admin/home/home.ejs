@@ -2,30 +2,33 @@
 <body>
     <%- include ('../../partials/navbar.ejs') %>
     <div class="container">
-        <div class="col-sm-12 col-md-5">
-            <h1 class="text-primary"><strong>Earth.</strong></h1>
-            <h2>Um mundo de possibilidades!</h2>
-        </div>
-        <br>
-        <form class="form-container col-sm-12 col-md-5" method="POST" action="/users/save" >
-            <div class="form-group">
-                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+        <div style="margin-top: 6%;">
+            <div class="col-sm-12 col-md-5">
+                <h1 class="text-primary"><strong>Earth.</strong></h1>
+                <h2>Um mundo de possibilidades!</h2>
             </div>
-
-            
-
-            <button class="btn btn-primary btn-block" type="submit"><strong>Cadastre-se</strong></button>
-        </form><br>
-        <div class="col-sm-12 col-md-5">
-            <div class="row">
-                <hr class="col-3">ou<hr class="col-3">
-            </div><br>
-            <div class="row d-flex justify-content-center">
-                <div>
-                    Já faz parte da Earth? <a class="text-primary" href="/login"><strong>Entre</strong></a>
+            <br>
+            <form class="form-container col-sm-12 col-md-5" method="POST" action="/users/save" >
+                <div class="form-group">
+                    <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                </div>
+    
+                
+    
+                <button class="btn btn-primary btn-block" type="submit"><strong>Cadastre-se</strong></button>
+            </form><br>
+            <div class="col-sm-12 col-md-5">
+                <div class="row">
+                    <hr class="col-3">ou<hr class="col-3">
+                </div><br>
+                <div class="row d-flex justify-content-center">
+                    <div>
+                        Já faz parte da Earth? <a class="text-primary" href="/login"><strong>Entre</strong></a>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

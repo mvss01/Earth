@@ -1,6 +1,40 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>Job Register</h1>
+    <div class="container">
+        <div class="row col-12">
+            <strong class="text-primary mb-2" style="font-size: 17pt;">Nova Vaga</strong>
+        </div>
+        <div class="row col-12">
+            <form class="form-container col-12  " action="/jobs/save" method="POST">
+                <input class="form-control" type="text" placeholder="Nome da vaga" name="name"><br>
+                <textarea class="form-control" type="text" placeholder="Descrição" rows="3" name="description"></textarea><br>
+                <div class="row">
+                    <div class="col-4">
+                        <select class="form-control" name="experience" required>
+                            <option value="" disabled selected hidden>Selecione o nível de experiência...</option>
+                            <option value="Estagiário">Estagiário</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Pleno">Pleno</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" name="workload" required>
+                            <option value="" disabled selected hidden>Selecione o período...</option>
+                            <option value="Integral">Integral</option>
+                            <option value="Meio Período">Meio Período</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="number" name="availability" placeholder="Número de vagas">
+                    </div>
+                </div><br>
+                <input class="form-control" type="text" name="state" placeholder="Unidade federativa"><br>
+                <input class="form-control" type="text" name="city" placeholder="Cidade"><br>
+                <button class="btn btn-primary col-4" style="float: right;" type="submit"><strong>Criar</strong></button>
+            </form>
+        </div>
+    </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

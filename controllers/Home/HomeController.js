@@ -16,7 +16,11 @@ router.get('/login', async (req, res) =>{
             }
         })
         if(user){
-            res.redirect('/jobs/favorites')
+            if(user.type == "User"){
+                res.redirect('/favorites')
+            }else{
+                res.redirect('/candidates')
+            }
         }else{
             res.render('admin/home/login', {navbar: 0})
         }

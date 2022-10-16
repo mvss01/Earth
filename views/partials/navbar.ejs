@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white mb-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-white mb-4">
     <a href="/" class="navabar-brand"><img src="/img/Logo.png" width="120" height="79.09"></a>
     <% if(navbar == 1){ %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex align-items-center">
 
-                <a href="/saved" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                <a href="/favorites" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
                     <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
                         <img class="collapse navbar-collapse" src="/img/filled-star.png" width="55" height="34.76"> 
                         <strong>Salvos</strong>
@@ -59,6 +59,44 @@
                     </div>
                 </a>
                 
+            </div>
+        </div>
+    <% } %>
+    <% if(navbar == 3){ %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav d-flex align-items-center">
+
+                <a href="/candidates" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/candidates.png" width="55" height="34.76"> 
+                        <strong>Candidatos</strong>
+                    </div>  
+                </a>
+
+                <a href="/jobs/register" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/plus.png" width="55" height="34.76"> 
+                        <strong style="white-space: nowrap">Criar Vaga</strong>
+                    </div>  
+                </a>
+
+                <a href="/jobs" class="nav-item text-secondary ml-3 mr-3" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img class="collapse navbar-collapse" src="/img/handshake.png" width="55" height="34.76">
+                        <strong>Vagas</strong>
+                    </div>
+                </a>
+                <a href="/users/perfil" class="nav-item text-primary ml-3 mr-3" style="font-size: 13pt; text-decoration: none;">
+                    <div class="d-flex align-items-center">
+                        <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
+                        <strong class="collapse navbar-collapse"><%=session.firstName%></strong>
+                        <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                    </div>
+                </a>
             </div>
         </div>
     <% } %>

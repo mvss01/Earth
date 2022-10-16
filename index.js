@@ -36,6 +36,14 @@ app.use("/", JobController);
 const HomeController = require("./controllers/Home/HomeController");
 app.use("/", HomeController);
 
+const FavoriteController = require('./controllers/Favorites/FavoriteController');
+app.use("/", FavoriteController);
+
+const OpportuniteController = require('./controllers/Opportunities/ControllerOpportunite');
+app.use('/', OpportuniteController);
+
+const CandidatesController = require('./controllers/Candidates/CandidateController');
+app.use("/", CandidatesController);
 //Server
 app.listen(80, () =>{
     console.log('Aplicação escutando na porta 80')

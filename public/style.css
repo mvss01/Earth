@@ -5,3 +5,13 @@
     margin-left: 10px;
 }
 .jobs::-webkit-scrollbar {width: 0! important}
+
+select:required:invalid {
+    color: gray;
+  }
+  option[value=""][disabled] {
+    display: none;
+  }
+  option {
+    color: black;
+  }

@@ -26,6 +26,7 @@ router.post('/users/authenticate', async (req, res) =>{
                 req.session.user = {
                     token: token,
                     firstName: user.firstName,
+                    permission: user.type,
                     email: user.email
                 }
                 User.update({token: token}, {
@@ -33,7 +34,11 @@ router.post('/users/authenticate', async (req, res) =>{
                         email: email
                     }
                 }).then(() =>{
-                    res.redirect('/jobs/favorites')
+                    if(user.type == "User"){
+                        res.redirect('/favorites')
+                    }else{
+                        res.redirect('/candidates')
+                    }  
                 }).catch(() =>{
                     res.redirect('/')
                 })
@@ -88,6 +93,7 @@ router.post('/users/save', async (req, res) =>{
                 req.session.user = {
                     firstName: firstName,
                     token: token,
+                    permission: type,
                     email: email
 
                 }
@@ -96,7 +102,7 @@ router.post('/users/save', async (req, res) =>{
                         email: email
                     }
                 }).then(() =>{
-                    res.redirect('/jobs/favorites')
+                    res.redirect('/favorites')
                 }).catch(() =>{
                     res.redirect('/')
                 })

@@ -7,7 +7,7 @@ async function UserAuth(req, res, next){
             where:{email: email, token: token}
         })
         if(user){
-            if(user.type == "User"||user.type == "Admin"||user.type == "Mod"){
+            if(user.type == "User"||user.type == "Mod"){
                 next()
             }else{
                 res.redirect('/')
