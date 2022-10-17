@@ -8,12 +8,11 @@
                     <strong class="text-primary mb-1" style="font-size: 17pt;">Minhas vagas</strong>
                 </div>
                 
-                <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 75vh;">
+                <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 65vh;">
                     <% Favorite.forEach(favorite => { %>
-
-                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=favorite.id%>" value="<%=favorite.id%>">
+                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=favorite.jobId%>" value="<%=favorite.jobId%>">
                             <p class="text-left">
-                                <strong><%=favorite.jobName%></strong><span style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></span><br>
+                                <strong><%=favorite.jobName%></strong><span style="float: right;"><img src="/img/little-filled-star.png" width="20" height="18.62" ></span><br>
                                 <span style="font-weight: 500;"><%=favorite.company%></span> 
                                 <br><br>
                                 <%=favorite.city%>, <%=favorite.state%>

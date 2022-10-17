@@ -2,6 +2,11 @@ const Sequelize = require("sequelize");
 const connection = require("../../database/database");
 
 const Job = connection.define('Job',{
+    jobId:{
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     jobName:{
         type: Sequelize.STRING,
         allowNull: false, 

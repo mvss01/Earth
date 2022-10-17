@@ -10,14 +10,25 @@
                 
                 <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 65vh;">
                     <% Job.forEach(job => { %>
-
-                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=job.id%>" value="<%=job.id%>">
+                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=job.jobId%>" value="<%=job.jobId%>">
                             <p class="text-left">
                                 <% if(session.permission != "User"){ %>
-                                    <strong><%=job.jobName%></strong><a href="/jobs/edit/<%=job.id%>" style="float: right;"><img src="/img/pencil.png" width="20" height="18.62" ></a><br>
+                                    <strong><%=job.jobName%></strong><a href="/jobs/edit/<%=job.jobId%>" style="float: right;"><img src="/img/pencil.png" width="20" height="18.62" ></a><br>
                                 <% }else{ %>
-                                    <strong><%=job.jobName%></strong><a href="/favorites/register/<%=job.id%>" style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></a><br>
+                                    <%Favorite.forEach(favorite =>{ %>
+                                        <%if(favorite.jobId == job.jobId){%>
+                                            <%fav = true %>
+                                        <% } %>
+                                    <%})%>
+                                    <%if(fav){%>
+                                        <strong><%=job.jobName%></strong><a href="/favorites/register/<%=job.jobId%>" style="float: right;"><img src="/img/little-filled-star.png" width="20" height="18.62" ></a><br>   
+                                        <%fav = false%>
+                                    <% }else{ %>
+                                        <strong><%=job.jobName%></strong><a href="/favorites/register/<%=job.jobId%>" style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></a><br>       
+                                    <% } %>
+                                    
                                 <% } %>
+                                                                 
                                 <span style="font-weight: 500;"><%=job.company%></span> 
                                 <br><br>
                                 <%=job.city%>, <%=job.state%>

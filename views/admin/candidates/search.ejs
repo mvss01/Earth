@@ -2,7 +2,31 @@
 <body>
     <%- include ('../../partials/navbar.ejs') %>
     <div class="container">
-        
+        <div class="row col-12">
+            <div class="col-md-4 col-sm-12">
+                <div class="row col-12">
+                    <strong class="text-primary mb-1" style="font-size: 17pt;">Minhas vagas</strong>
+                </div>
+                
+                <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 75vh;">
+                    <% Candidate.forEach(candidate => { %>
+
+                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=candidate.id%>" value="<%=candidate.id%>">
+                            <p class="text-left">
+                                <strong><%=candidate.jobName%></strong><span style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></span><br>
+                                <span style="font-weight: 500;"><%=candidate.company%></span> 
+                                <br><br>
+                                <%=candidate.city%>, <%=candidate.state%>
+                            </p>
+                        </button><br>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="col-md-8" id="jobDescription">
+                
+            </div>
+        </div>  
     </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

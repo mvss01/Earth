@@ -54,8 +54,8 @@ router.post('/users/authenticate', async (req, res) =>{
     
 })
 
-router.get('/users/perfil', UserAuth, (req, res) =>{
-    res.render('admin/users/perfil', {navbar: 2, session: req.session.user})
+router.get('/users/profile', UserAuth, (req, res) =>{
+    res.render('admin/users/profile', {navbar: 2, session: req.session.user})
 });
 
 router.get('/users/register', (req, res) =>{

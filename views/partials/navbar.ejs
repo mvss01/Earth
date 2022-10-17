@@ -90,12 +90,53 @@
                         <strong>Vagas</strong>
                     </div>
                 </a>
-                <a href="/users/perfil" class="nav-item text-primary ml-3 mr-3" style="font-size: 13pt; text-decoration: none;">
-                    <div class="d-flex align-items-center">
-                        <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
-                        <strong class="collapse navbar-collapse"><%=session.firstName%></strong>
-                        <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+
+                <div class="nav-item dropdown collapse navbar-collapse">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <button class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
+                                <strong class="collapse navbar-collapse text-primary"><%=session.firstName%></strong>
+                                <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                            </div>
+                        </button>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/users/profile" class="dropdown-item">Perfil</a>
+                        <a href="/users/profile" class="dropdown-item">Sair</a>
                     </div>
+                </div>
+                
+                <a href="/users/profile" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <strong>Perfil</strong> 
+                    </div>
+                </a>
+
+                <a href="/users/profile" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <strong>Sair</strong> 
+                    </div>
+                </a>
+        
+                
+                <!--                
+                <div class="dropdown nav-item">
+                    <button class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
+                            <strong class="collapse navbar-collapse text-primary"><%=session.firstName%></strong>
+                            <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a href="/users/profile" class="dropdown-item">Perfil</a></li>
+                        <li><a href="/users/profile" class="dropdown-item">Sair</a></li>
+                    </ul>
+                </div>-->
+                
+                <a href="/users/perfil" class="nav-item text-primary ml-3 mr-3" style="font-size: 13pt; text-decoration: none;">
+                    
                 </a>
             </div>
         </div>

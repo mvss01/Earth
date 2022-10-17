@@ -6,6 +6,10 @@
 }
 .jobs::-webkit-scrollbar {width: 0! important}
 
+.dropdown-toggle::after {
+  content: none;
+}
+
 select:required:invalid {
     color: gray;
   }
