@@ -3,8 +3,10 @@ const UserAuth = require("../../middlewares/UserAuth");
 const AdminAuth = require("../../middlewares/AdminAuth");
 const router = express.Router();
 const User = require("../Users/user")
+const Opportunites = require("../Opportunities/opportunities")
 const Job = require("./job");
-const Favorite = require('../Favorites/favorite')
+const Favorite = require('../Favorites/favorite');
+const Opportunite = require("../Opportunities/opportunities");
 
 router.get('/jobs', async (req, res) =>{
     var session = req.session.user
@@ -32,7 +34,7 @@ router.get('/jobs', async (req, res) =>{
             res.render('admin/jobs/search', {navbar: 1, session: req.session.user, Job: job})
         }
     }else{
-        res.render('admin/jobs/search', {navbar: 1, Job: job})
+        res.render('admin/jobs/search', {navbar: 1, Job: job, session: null})
     }
     
 })
@@ -40,6 +42,7 @@ router.get('/jobs', async (req, res) =>{
 router.get('/jobs/register', AdminAuth, (req, res) =>{
     res.render('admin/jobs/register', {navbar: 3, session: req.session.user})
 })
+
 router.post('/jobs/save', (req, res) =>{
     var name = req.body.name
     var description = req.body.description
@@ -48,7 +51,7 @@ router.post('/jobs/save', (req, res) =>{
     var availability = req.body.availability
     var state = req.body.state
     var city = req.body.city
-    var company = 'Empresa'//req.session.company
+    var company = req.session.user.company
     var status = 'Active'
     Job.create({
         jobName: name,
@@ -103,56 +106,121 @@ router.post('/jobs/update/:job', (req, res) =>{
 
 })
 
+router.get('/jobs/delete/:id', AdminAuth, (req, res) =>{
+    var jobId = req.params.id
+    var company = req.session.user.company
+    Job.destroy({
+        where:{
+            company: company,
+            jobId: jobId
+        }
+    }).then(() =>{
+        res.redirect('/jobs')
+    })
+
+})
 router.get('/jobs/api/:id', (req, res) =>{
     var id = req.params.id
     var session = req.session.user
-    var email = req.session.user.email
+    
     if(session){
-        Favorite.findAll({
+        var email = req.session.user.email
+        Opportunites.findAll({
             where:{
                 userEmail: email,
                 jobId: id
             }
-        }).then(favorite =>{
-            
-            if(favorite != 0){
-                Job.findOne({
+        }).then(opportunite =>{
+            if(opportunite != 0){
+                Favorite.findAll({
                     where:{
+                        userEmail: email,
                         jobId: id
                     }
-                }).then(job =>{
-                    var informations ={
-                        favorite: favorite,
-                        job: job,
-                        session: session
+                }).then(favorite =>{
+                    
+                    if(favorite != 0){
+                        Job.findOne({
+                            where:{
+                                jobId: id
+                            }
+                        }).then(job =>{
+                            var informations ={
+                                opportunite: opportunite,
+                                favorite: favorite,
+                                job: job,
+                                session: session
+                            }
+                            res.json(informations)
+                        })
+                    }else{
+                        Job.findOne({
+                            where:{
+                                jobId: id
+                            }
+                        }).then(job =>{
+                            var informations ={
+                                opportunite: opportunite,
+                                favorite: null,
+                                job: job,
+                                session: session
+                            }
+                            res.json(informations)
+                        })
                     }
-                    res.json(informations)
                 })
             }else{
-                Job.findOne({
+                Favorite.findAll({
                     where:{
+                        userEmail: email,
                         jobId: id
                     }
-                }).then(job =>{
-                    var informations ={
-                        favorite: null,
-                        job: job,
-                        session: session
+                }).then(favorite =>{
+                    
+                    if(favorite != 0){
+                        Job.findOne({
+                            where:{
+                                jobId: id
+                            }
+                        }).then(job =>{
+                            var informations ={
+                                opportunite: null,
+                                favorite: favorite,
+                                job: job,
+                                session: session
+                            }
+                            res.json(informations)
+                        })
+                    }else{
+                        Job.findOne({
+                            where:{
+                                jobId: id
+                            }
+                        }).then(job =>{
+                            var informations ={
+                                favorite: null,
+                                opportunite: null,
+                                job: job,
+                                session: session
+                            }
+                            res.json(informations)
+                        })
                     }
-                    res.json(informations)
                 })
             }
         })
     }else{
+        
         Job.findOne({
             where:{
                 jobId: id
             }
         }).then(job =>{
             var informations ={
+                opportunite: null,
                 favorite: null,
                 job: job,
-                session: session
+                session: null
             }
             res.json(informations)
         })

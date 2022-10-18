@@ -61,7 +61,7 @@
                 <input class="form-control" type="text" name="state" placeholder="<%=job.state%>" value="<%=job.state%>"><br>
                 <input class="form-control" type="text" name="city" placeholder="<%=job.city%>" value="<%=job.city%>"><br>
                 <button class="btn btn-primary col-4" style="float: right;" type="submit"><strong>Editar</strong></button>
-                <button class="btn btn-danger col-2"><strong>Apagar</strong></button>
+                <a href="/jobs/delete/<%=job.jobId%>" class="btn btn-danger col-2"><strong>Apagar</strong></a>
             </form>
           
         </div>

@@ -2,12 +2,32 @@ const Sequelize = require("sequelize");
 const connection = require("../../database/database");
 
 const Opportunite = connection.define('Opportunite',{
-    jobId:{
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
     userEmail:{
         type: Sequelize.TEXT,
+        allowNull: false
+    },
+    userDescription:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    firstName:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    telephone:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    userState:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    userCity:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    jobId:{
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     jobName:{
