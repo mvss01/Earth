@@ -51,11 +51,31 @@
                         <strong>Vagas</strong>
                     </div>
                 </a>
-                <a href="/users/perfil" class="nav-item text-primary ml-3 mr-3" style="font-size: 13pt; text-decoration: none;">
-                    <div class="d-flex align-items-center">
-                        <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
-                        <strong class="collapse navbar-collapse"><%=session.firstName%></strong>
-                        <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                <div class="nav-item dropdown collapse navbar-collapse">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <button class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <img class="mr-1 collapse navbar-collapse" src="/img/user.png" width="45" height="45">
+                                <strong class="collapse navbar-collapse text-primary"><%=session.firstName%></strong>
+                                <strong class="collapse" id="navbarNavAltMarkup">Perfil</strong>
+                            </div>
+                        </button>
+                    </a>
+                    <div class="dropdown-menu bg-primary">
+                        <a href="/users/profile" class="dropdown-item text-white"><strong style="font-size: 15pt;">Perfil</strong></a>
+                        <a href="/exit" class="dropdown-item text-white"><strong style="font-size: 15pt;">Sair</strong></a>
+                    </div>
+                </div>
+                
+                <a href="/users/profile" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <strong class="text-primary">Perfil</strong> 
+                    </div>
+                </a>
+
+                <a href="/exit" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
+                    <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
+                        <strong class="text-danger">Sair</strong> 
                     </div>
                 </a>
                 
@@ -101,21 +121,21 @@
                             </div>
                         </button>
                     </a>
-                    <div class="dropdown-menu">
-                        <a href="/users/profile" class="dropdown-item">Perfil</a>
-                        <a href="/users/profile" class="dropdown-item">Sair</a>
+                    <div class="dropdown-menu bg-primary">
+                        <a href="/users/profile" class="dropdown-item text-white"><strong style="font-size: 15pt;">Perfil</strong></a>
+                        <a href="/exit" class="dropdown-item text-white"><strong style="font-size: 15pt;">Sair</strong></a>
                     </div>
                 </div>
                 
                 <a href="/users/profile" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
                     <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
-                        <strong>Perfil</strong> 
+                        <strong class="text-primary">Perfil</strong> 
                     </div>
                 </a>
 
-                <a href="/users/profile" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
+                <a href="/exit" class="nav-item text-secondary ml-3 mr-3 collapse" id="navbarNavAltMarkup" style="text-decoration: none;">
                     <div class="row col-12 d-flex flex-column justify-content-center align-items-center">
-                        <strong>Sair</strong> 
+                        <strong class="text-danger">Sair</strong> 
                     </div>
                 </a>
         

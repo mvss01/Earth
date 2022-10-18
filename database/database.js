@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('earth', 'root', '2m0m2m1m',{
+const connection = new Sequelize('earth', 'root', '',{
     host: /*'portalsims.com'*/ 'localhost',
     dialect: 'mysql',
               timezone: '-03:00',

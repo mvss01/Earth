@@ -30,7 +30,15 @@ const User = connection.define('User',{
         type: Sequelize.STRING,
         allowNull: true
     },
-    location:{
+    country:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    state:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    city:{
         type: Sequelize.STRING,
         allowNull: true
     },

@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 const User = require("./user");
-const UserAuth = require("../../middlewares/UserAuth");
+const AllAuth = require("../../middlewares/AllAuth");
+const AdminAuth = require("../../middlewares/AdminAuth");
+
 
 router.post('/users/authenticate', async (req, res) =>{
 
@@ -54,8 +56,28 @@ router.post('/users/authenticate', async (req, res) =>{
     
 })
 
-router.get('/users/profile', UserAuth, (req, res) =>{
-    res.render('admin/users/profile', {navbar: 2, session: req.session.user})
+router.get('/users/profile', AllAuth, (req, res) =>{
+    var email = req.session.user.email 
+    var permission = req.session.permission
+    if(permission == "User"){
+        User.findOne({
+            where:{
+                email: email
+            }
+        }).then(User =>{
+            res.render('admin/users/profile', {navbar: 2, session: req.session.user, User: User})
+        })
+    }else{
+        User.findOne({
+            where:{
+                email: email
+            }
+        }).then(User =>{
+            res.render('admin/users/profile', {navbar: 3, session: req.session.user, User: User})
+        })
+    }
+    
+
 });
 
 router.get('/users/register', (req, res) =>{
@@ -114,14 +136,27 @@ router.post('/users/save', async (req, res) =>{
     }
 });
 
-router.get('/users/edit/:user', (req, res) =>{
-    res.render('admin/users/edit', {navbar: 1})
-});
 router.post('/users/update/:user', (req, res) =>{
-
+    var email = req.session.user.email
+    var id = req.params.user
+    var city =  req.body.city
+    var state = req.body.state
+    var country = req.body.country
+    var telephone = req.body.telephone
+    var description = req.body.description
+    User.update({id: id, city: city, state: state, country: country, telephone: telephone, description: description},{
+        where:{
+            email: email
+        }
+    }).then(()=>{
+        res.redirect("/users/profile")
+    })
 });
 
-
+router.get('/exit', AllAuth, (req, res) =>{
+    req.session.user = null
+    res.redirect('/')
+})
 
 
 module.exports = router;

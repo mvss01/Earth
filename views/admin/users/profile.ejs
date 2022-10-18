@@ -1,6 +1,35 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>User Perfil</h1>
+    <div class="container">
+        <div class="row col-12 d-flex align-items-center">
+            <img class="mr-2" src="/img/user.png" width="65" height="65">
+            <strong class="text-primary" style="font-size: 17pt;"><%=User.firstName%> <%=User.lastName%></strong>
+        </div><br>
+        <div class="row col-12">
+            <form class="form-container col-12  " action="/users/update/<%=User.id%>" method="POST">
+                <div class="row">
+                    <div class="col-6">
+                        <input class="form-control" type="text" placeholder="Cidade" name="city" value="<%=User.city%>">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" placeholder="Unidade Federativa" name="state" value="<%=User.state%>">
+                    </div>
+                   
+                </div><br>
+                <div class="row">
+                    <div class="col-6">
+                        <input class="form-control" type="text" placeholder="País" name="country" value="<%=User.country%>">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" placeholder="Telefone" name="telephone" value="<%=User.telephone%>">
+                    </div>
+                   
+                </div><br>
+                <textarea class="form-control" type="text" placeholder="Fale mais sobre você..." rows="10" name="description"><%=User.description%></textarea><br>
+               
+                <button class="btn btn-primary col-4" style="float: right;" type="submit"><strong>Salvar</strong></button>
+            </form>
+        </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>

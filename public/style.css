@@ -9,6 +9,11 @@
 .dropdown-toggle::after {
   content: none;
 }
+.dropdown-menu a:hover {
+  color: #262626;
+  text-decoration: none;
+  background-color: #0058b6;
+}
 
 select:required:invalid {
     color: gray;

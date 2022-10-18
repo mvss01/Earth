@@ -1,0 +1,24 @@
+async function AdminAuth(req, res, next){
+    const User = require("../controllers/Users/user")
+    if(req.session.user){
+        let token = req.session.user.token
+        let email = req.session.user.email
+        const user = await User.findOne({
+            where:{email: email, token: token}
+        })
+        if(user){
+            if(user.type == "Admin"||user.type == "Mod"||user.type == "User"){
+                next()
+            }else{
+                res.redirect('/')
+            }  
+        }else{
+            req.session.user = null
+            res.redirect('/')
+        }
+    }else{
+        res.redirect('/')
+    }
+}
+
+module.exports = AdminAuth

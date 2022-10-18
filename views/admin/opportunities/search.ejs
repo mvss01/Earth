@@ -1,6 +1,32 @@
 <%- include ('../../partials/header.ejs') %>
 <body>
     <%- include ('../../partials/navbar.ejs') %>
-    <h1>Oportunidades</h1>
+    <div class="container">
+        <div class="row col-12">
+            <div class="col-md-4 col-sm-12">
+                <div class="row col-12">
+                    <strong class="text-primary mb-1" style="font-size: 17pt;">Minhas oportunidades</strong>
+                </div>
+                
+                <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 65vh;">
+                    <% Opportunite.forEach(opportunite => { %>
+                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=opportunite.jobId%>" value="<%=opportunite.jobId%>">
+                            <p class="text-left">
+                                <strong><%=opportunite.jobName%></strong><br>
+                                <span style="font-weight: 500;"><%=opportunite.company%></span> <br>
+                                <span style="font-style: italic; font-weight: 200;">Inscrito</span> 
+                                <br>
+                                <%=opportunite.city%>, <%=opportunite.state%>
+                            </p>
+                        </button><br>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="col-md-8" id="jobDescription">
+                
+            </div>
+        </div>
+    </div>
 </body>
 <%- include ('../../partials/footer.ejs') %>
