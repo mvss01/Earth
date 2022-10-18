@@ -30,6 +30,10 @@ const User = connection.define('User',{
         type: Sequelize.STRING,
         allowNull: true
     },
+    company:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
     country:{
         type: Sequelize.STRING,
         allowNull: true

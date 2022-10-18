@@ -14,7 +14,15 @@
                             <p class="text-left">
                                 <strong><%=opportunite.jobName%></strong><br>
                                 <span style="font-weight: 500;"><%=opportunite.company%></span> <br>
-                                <span style="font-style: italic; font-weight: 200;">Inscrito</span> 
+                                <% if(opportunite.status == "Analyze"){ %>
+                                <span style="font-style: italic; font-weight: 200;">Inscrito, aguarde...</span>
+                                <% }else{ %>
+                                    <%if(opportunite.status == "Pending"){%>
+                                        <span style="font-style: italic; font-weight: 200;">Entraremos em contato...</span>
+                                    <% }else{ %>
+                                        <span style="font-style: italic; font-weight: 200;">Dispensado</span>
+                                    <% } %>
+                                <% } %>
                                 <br>
                                 <%=opportunite.city%>, <%=opportunite.state%>
                             </p>

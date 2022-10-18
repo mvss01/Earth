@@ -25,12 +25,23 @@ router.post('/users/authenticate', async (req, res) =>{
            if(correct){
                 var salt = bcrypt.genSaltSync(10);
                 var token = bcrypt.hashSync(user.firstName, salt);
-                req.session.user = {
-                    token: token,
-                    firstName: user.firstName,
-                    permission: user.type,
-                    email: user.email
+                if(user.type == "User"){
+                    req.session.user = {
+                        token: token,
+                        firstName: user.firstName,
+                        permission: user.type,
+                        email: user.email
+                    }
+                }else{
+                    req.session.user = {
+                        token: token,
+                        firstName: user.firstName,
+                        permission: user.type,
+                        email: user.email,
+                        company: user.company
+                    }
                 }
+                
                 User.update({token: token}, {
                     where:{
                         email: email

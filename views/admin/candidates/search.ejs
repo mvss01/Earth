@@ -9,21 +9,30 @@
                 </div>
                 
                 <div class="col-12 mt-1 jobs" style="border-right: 1px solid #dbdbdb; overflow-y: scroll; height: 75vh;">
-                    <% Candidate.forEach(candidate => { %>
+                    <% Opportunite.forEach(opportunite => { %>
 
-                        <button class="btn btn-block job_btn mt-1" type="button" id="job<%=candidate.id%>" value="<%=candidate.id%>">
+                        <button class="btn btn-block candidate_btn mt-1" type="button" id="job<%=opportunite.id%>" value="<%=opportunite.id%>">
                             <p class="text-left">
-                                <strong><%=candidate.jobName%></strong><span style="float: right;"><img src="/img/star.png" width="20" height="18.62" ></span><br>
-                                <span style="font-weight: 500;"><%=candidate.company%></span> 
-                                <br><br>
-                                <%=candidate.city%>, <%=candidate.state%>
+                                <strong><%=opportunite.firstName%></strong><br>
+                                <span style="font-weight: 500;"><%=opportunite.jobName%></span> 
+                                <br>
+                                <%if(opportunite.status == "Analyze"){%>
+                                <span style="font-style: italic; font-weight: 200;">Analise pendente...</span><br>
+                                <% }else{ %>
+                                    <%if(opportunite.status == "Pending"){%>
+                                        <span style="font-style: italic; font-weight: 200;">Entrar em contato...</span><br>
+                                    <% }else{ %>
+                                        <span style="font-style: italic; font-weight: 200;">Dispensado</span><br>
+                                    <% } %>
+                                <% } %>
+                                <%=opportunite.city%>, <%=opportunite.state%>
                             </p>
                         </button><br>
                     <% }) %>
                 </div>
             </div>
 
-            <div class="col-md-8" id="jobDescription">
+            <div class="col-md-8" id="userDescription">
                 
             </div>
         </div>  
