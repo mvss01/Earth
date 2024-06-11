@@ -19,13 +19,13 @@ app.use(flash())
 //Data Base connection
 const connection = require("./database/database");
 connection
-    .authenticate() 
+    .authenticate()
     .then(() =>{
         console.log("Connected!");
     }).catch((error) => {
         console.log(error);
     });
-    
+
 //Controllers
 const UserController = require("./controllers/Users/UserController");
 app.use("/", UserController);
@@ -45,6 +45,6 @@ app.use('/', OpportuniteController);
 const CandidatesController = require('./controllers/Candidates/CandidateController');
 app.use("/", CandidatesController);
 //Server
-app.listen(80, () =>{
-    console.log('Aplicação escutando na porta 80')
+app.listen(8000, () =>{
+    console.log('Aplicação escutando na porta 8000')
 })
